@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-func ParseJSON() (map[string]model.StoryArc, error) {
+func ParseJSON() (model.Story, error) {
 	// read JSON
 
 	content, err := os.ReadFile("./internal/data/gopher.json")
@@ -18,7 +18,7 @@ func ParseJSON() (map[string]model.StoryArc, error) {
 	}
 
 	// parse JSON
-	var stories map[string]model.StoryArc
+	var stories model.Story
 
 	err = json.Unmarshal(content, &stories)
 
