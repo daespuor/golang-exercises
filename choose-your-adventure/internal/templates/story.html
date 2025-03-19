@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Adventure - {{.Title}}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>{{.Title}}</h1>
+    </header>
+    <main>
+        <section>
+            {{range .Story}}
+            <p>{{.}}</p>
+            {{end}}
+            <!-- Adventure options will go here -->
+            {{if gt (len .Options) 0 }} 
+            <ul>
+                {{range .Options}}
+                <li>
+                    <a href="{{.Arc}}">{{.Text}}</a>
+                </li>
+                {{end}}
+            </ul>
+            {{else}}
+            <p>The End</p>
+            <a href="/">Go Home</a>
+            {{end}}
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Choose Your Adventure</p>
+    </footer>
+</body>
+
+</html>
